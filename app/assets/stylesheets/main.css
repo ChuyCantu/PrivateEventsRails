@@ -1,0 +1,243 @@
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #e3e3e3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.main-container {
+    display: grid;
+    /* In case we want some side content */
+    grid-template-columns: minmax(auto, 1fr) minmax(45ch, 75ch) minmax(auto, 1fr); /* minmax(45ch, 75ch) */
+    justify-content: space-around;
+}
+
+.link {
+    text-decoration: none;
+    color: #0d6efd;
+    font-weight: 400;
+}
+
+.btn-outline-primary {
+    border: 1px solid #0d6efd;
+    border-radius: 6px;
+    padding: 8px 8px;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background: #0d6efd;
+}
+
+.btn-primary {
+    background: #0d6efd;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    padding: 8px 8px;
+}
+
+.btn-primary:hover {
+    background: #0B5ED7;
+}
+
+.btn-outline-alert {
+    background: #fff;
+    border: 1px solid #f5c2c7;
+    border-radius: 6px;
+    color: #842029;
+    padding: 8px 8px;
+}
+
+.btn-outline-alert:hover {
+    background: #f8d7da;
+}
+
+/*
+  ==========
+    NAVBAR
+  ==========
+*/ 
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    height: 50px;
+}
+
+.navbar-branding {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    margin: 0;
+    color: #0d6efd;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.navbar-items {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding-right: 10px;
+}
+
+.nav-item {
+    list-style: none;
+}
+
+/*
+  =================
+    NOTIFICATIONS
+  =================
+*/ 
+
+.notifications {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.notification {
+    border: 1px solid;
+    border-radius: 12px;
+    display: grid;
+    grid-template: auto / 1fr auto;
+    align-items: center;
+    padding: 2px 0 2px 15px;
+    min-width: 300px;
+}
+
+.notification .msg {
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+.notification .close-btn {
+    padding: 10px;
+    grid-column: 2/3;
+    color: #5c5c5c;
+}
+
+.notification .close-btn:hover {
+    color: #000;
+}
+
+.notification.notice {
+    background: #d1e7dd;
+    border-color: #badbcc;
+    color: #0f5132;
+}
+
+.notification.alert {
+    background: #f8d7da;
+    border-color: #f5c2c7;
+    color: #842029;
+}
+
+/*
+  ==========
+    FORMS
+  ==========
+*/ 
+
+.field {
+    width: 100%;
+}
+
+.field.right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ph-16 {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.box {
+    /* box-shadow: 0 5px 3px rgba(216, 216, 216, 0.719); */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+textarea  {
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    padding: 4px 8px;
+    width: 100%;
+}
+
+.post-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post-form .title {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+input[type="text"]:hover:not(:focus),
+input[type="tel"]:hover:not(:focus),
+input[type="email"]:hover:not(:focus),
+input[type="password"]:hover:not(:focus),
+textarea:hover:not(:focus) {
+    border-color: #858585;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    outline: 1px solid #308aff;
+    border-color: #308aff;
+}
+
+input[type="text"]:invalid:not(:placeholder-shown),
+input[type="tel"]:invalid:not(:placeholder-shown),
+input[type="email"]:invalid:not(:placeholder-shown),
+input[type="password"]:invalid,
+textarea:invalid:not(:placeholder-shown) {
+    outline: 1px solid #ff6b6b;
+    border-color: #ff6b6b;
+}

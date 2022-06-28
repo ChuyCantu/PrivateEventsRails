@@ -1,0 +1,49 @@
+.auth-panel {
+    grid-column: 2/3;
+    
+    background: #fff;
+    border-radius: 12px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.auth-panel,
+.auth-panel form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-panel h2,
+.auth-panel h3 {
+    color: #0B5ED7;
+    border-bottom: 1px solid #c3c3c3;
+    padding: 0 0 4px 0;
+    margin: 0 0 10px 0;
+    font-size: 2.4rem;
+}
+
+.auth-panel h3 {
+    padding-top: 50px;
+    font-size: 1.8rem;
+}
+
+.self-flex-start {
+    align-self: flex-start;
+}
+
+.field label {
+    color: #292929;
+    padding-left: 2px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.field em {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.field .normal-text {
+    font-weight: 400;
+}
