@@ -10,6 +10,7 @@
   ==============
 */ 
 .events-container {
+    /* https://stackoverflow.com/questions/37300614/how-to-adapt-a-flex-divs-width-to-content */
     display: inline-flex; /* inline so it shrinks properly */
     flex-wrap: wrap;
     flex-direction: column;
@@ -53,31 +54,116 @@
     gap: 15px;
 }
 
-.event-card .title {
+.event-card .title,
+.event .title {
     color: #39364f;
     font-size: 2rem;
     margin: 0;
 }
 
-.event-card .date {
+.event-card .date,
+.event .date {
     color: #d1410c;
     font-weight: 600;
     font-size: 1.6rem;
 }
 
-.event-card .location {
+.event-card .location,
+.event .location {
     font-size: 1.6rem;
     color: #1b1b1b;
     font-weight: 500;
 }
 
-.event-card .author {
+.event-card .author,
+.event .author {
     color: #5a5a5a;
     font-weight: 500;
     font-size: 1.4rem;
 }
 
-.event-card .author strong {
+.event-card .author strong,
+.event .author strong {
     font-weight: 600;
     color: #363636;
+}
+
+/*
+  =========
+    EVENT
+  =========
+*/ 
+.event {
+    display: grid;
+    grid-template: auto 1fr / 2fr 1fr;
+    grid-template-areas: "title title"
+                         "body side";
+    padding: 25px 0;
+}
+
+@media screen and (max-width: 700px) {
+    .event {
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .event .description {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #5a5a5a;
+    }
+}
+
+.event .title {
+    grid-area: title;
+
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #5a5a5a;
+}
+
+.event .description {
+    grid-area: body;
+}
+
+.event .side {
+    grid-area: side;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event .tag {
+    color: #3e8bff;
+    margin-bottom: 5px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.event .small-title,
+.event .medium-title {
+    color: #444444;
+    margin: 0;
+}
+
+.event .small-title {
+    font-size: 1.8rem;
+}
+
+.event .medium-title {
+    font-size: 2.2rem;
+}
+
+.event .description .medium-title {
+    margin-bottom: 15px;
+}
+
+.event p {
+    margin: 0;
 }

@@ -1,20 +1,37 @@
 <section class="main-container">
     <div></div>
 
-    <article class="event-card">
-        <h3 class="title"><%= @event.title %></h3>
+    <article class="event">
+        <h1 class="title"><%= @event.title %></h1>
 
-        <%# https://apidock.com/ruby/DateTime/strftime %>
-        <div>
-            <small class="date"><%= @event.date.strftime("%a, %b %d, %Y %I:%M %p") %> UTC<%= @event.date.strftime("%:z") %></small>
-        </div>
-        
-        <div>
-            <small class="location"><%= @event.location %></small>
+        <div class="description">
+            <h2 class="medium-title">About this event</h2>
+            <p class="wrap-lines"><%= @event.description %></p>
         </div>
 
-        <div>
-            <small class="author">Created by <strong><%= @event.creator.username %></strong></small>
+        <div class="side">
+            <div>
+                <small class="author">Created by <strong><%= @event.creator.username %></strong></small>
+            </div>
+            <%# https://apidock.com/ruby/DateTime/strftime %>
+    
+            <div>
+                <div class="tag">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <h3 class="small-title">Time and Date:</h3>
+                </div>
+                <small class="date"><%= @event.date.strftime("%a, %b %d, %Y %I:%M %p") %> UTC<%= @event.date.strftime("%:z") %></small>
+            </div>
+            
+            <div>
+                <div class="tag">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h3 class="small-title">Location:</h3>
+                </div>
+                <small class="location"><%= @event.location %></small>
+            </div>
+
+            <%= button_to("Enroll Now", "#", class: "link btn-outline-primary size-fill") %>
         </div>
     </article>
 
