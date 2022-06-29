@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
-
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @upcoming_events = Event.all
-    @past_events = Event.all
+    today = today_zeroed
+    @upcoming_events = Event.all.where("date >= ?", today)
+    @past_events = Event.all.where("date < ?", today)
   end
 
   def show
@@ -29,5 +29,11 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :description, :date, :location)
+  end
+
+  def today_zeroed
+    today = DateTime.now
+    today_zero = DateTime.new(today.year, today.month, today.day, 0, 0, 0)
+    return today_zero
   end
 end

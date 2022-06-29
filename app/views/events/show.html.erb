@@ -31,7 +31,9 @@
                 <small class="location"><%= @event.location %></small>
             </div>
 
-            <%= button_to("Enroll Now", "#", class: "link btn-outline-primary size-fill") %>
+            <% if @event.creator != current_user %>
+                <%= button_to("Enroll Now", "#", class: "link btn-outline-primary size-fill") %>
+            <% end %>
         </div>
     </article>
 
