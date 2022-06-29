@@ -39,9 +39,13 @@
         </div>
         
         <ul class="navbar-items">
+          <li class="nav-item">
+              <%= link_to("Create Event", new_event_path, class: "link") %>
+          </li>
+
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to(current_user.username, edit_user_registration_path, class: "link btn-outline-primary") %>
+              <%= link_to(current_user.username, user_path(current_user), class: "link btn-outline-primary") %>
             </li>
             <li class="nav-item">
               <%= link_to("Log Out", destroy_user_session_path, class: "link",
@@ -64,9 +68,12 @@
 
       <section class="burger-menu hidden">
         <ul class="burger-items">
+          <li class="burger-item">
+              <%= link_to("Create Event", new_event_path, class: "link") %>
+          </li>
           <% if user_signed_in? %>
             <li class="burger-item">
-              <%= link_to(current_user.username, edit_user_registration_path, class: "link") %>
+              <%= link_to(current_user.username, user_path(current_user), class: "link") %>
             </li>
             <li class="burger-item">
               <%= link_to("Log Out", destroy_user_session_path, class: "link",
