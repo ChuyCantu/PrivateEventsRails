@@ -32,30 +32,57 @@
       <% end %>
     </div>
 
-    <nav class="navbar">
-      <div class="navbar-branding">
-        <%= link_to("Private Events", root_path, class: "navbar-brand") %>
-      </div>
-      
-      <ul class="navbar-items">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to(current_user.username, edit_user_registration_path, class: "link btn-outline-primary") %>
-          </li>
-          <li class="nav-item">
-            <%= link_to("Log Out", destroy_user_session_path, class: "link",
-                        data: { turbo_method: :delete }) %>
-          </li>
-        <% else %>
+    <header>
+      <nav class="navbar">
+        <div class="navbar-branding">
+          <%= link_to("Private Events", root_path, class: "navbar-brand") %>
+        </div>
+        
+        <ul class="navbar-items">
+          <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to("Sign In", new_user_session_path, class: "link btn-outline-primary") %>
+              <%= link_to(current_user.username, edit_user_registration_path, class: "link btn-outline-primary") %>
             </li>
             <li class="nav-item">
-              <%= link_to("Sign Up", new_user_registration_path, class: "link btn-primary") %>
+              <%= link_to("Log Out", destroy_user_session_path, class: "link",
+                          data: { turbo_method: :delete }) %>
             </li>
-        <% end %>
-      </ul>
-    </nav>
+          <% else %>
+              <li class="nav-item">
+                <%= link_to("Sign In", new_user_session_path, class: "link btn-outline-primary") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to("Sign Up", new_user_registration_path, class: "link btn-primary") %>
+              </li>
+          <% end %>
+        </ul>
+
+        <div class="navbar-burger">
+          <i class="fa-solid fa-bars navbar-burger-item"></i>
+        </div>
+      </nav>
+
+      <section class="burger-menu hidden">
+        <ul class="burger-items">
+          <% if user_signed_in? %>
+            <li class="burger-item">
+              <%= link_to(current_user.username, edit_user_registration_path, class: "link") %>
+            </li>
+            <li class="burger-item">
+              <%= link_to("Log Out", destroy_user_session_path, class: "link",
+                          data: { turbo_method: :delete }) %>
+            </li>
+          <% else %>
+              <li class="burger-item">
+                <%= link_to("Sign In", new_user_session_path, class: "link") %>
+              </li>
+              <li class="burger-item">
+                <%= link_to("Sign Up", new_user_registration_path, class: "link") %>
+              </li>
+          <% end %>
+        </ul>
+      </section>
+    </header>
 
     <%= yield %>
   </body>

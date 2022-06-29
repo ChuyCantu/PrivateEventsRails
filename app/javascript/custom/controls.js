@@ -9,6 +9,26 @@ function fadeAndSlideOut(element, duration, func) {
     setTimeout(func, duration);
 }
 
+// NAV BURGER: ==================================
+    function initBurgerMenu() {
+        const navbarBurgerItems = document.getElementsByClassName("navbar-burger-item");
+        const burgerBtn = navbarBurgerItems.length > 0 ? navbarBurgerItems[0] : null;
+
+        if (burgerBtn === null) return;
+
+        // This should be changed to an ID since there can only be one burger menu anyways
+        const burgerMenus = document.getElementsByClassName("burger-menu");
+        const burgerMenu = burgerMenus.length > 0 ? burgerMenus[0] : null;
+
+        if (burgerMenu === null) return;
+
+        burgerBtn.addEventListener("click", () => burgerMenu.classList.toggle("hidden"));
+
+        // const burgerItems = burgerMenu.getElementsByClassName("burger-item");
+        // Array.from(burgerItems).forEach((item) => item.addEventListener("click", () => burgerMenu.classList.toggle("hidden")));
+    }
+// ==============================================
+
 // NOTIFICATIONS: ===============================
 function onNotificationAdded(notification) {
     // Set up close button
@@ -24,7 +44,7 @@ function onNotificationAdded(notification) {
     }, 10000);
 }
 
-function SetupNotifications() {
+function setupNotifications() {
     const notificationsContainers = document.getElementsByClassName("notifications");
     Array.from(notificationsContainers).forEach(container => {
         // Check for existing notifications:
@@ -55,7 +75,8 @@ function SetupNotifications() {
 //+ https://turbo.hotwired.dev/reference/events
 document.documentElement.addEventListener('turbo:load', () => {
     // console.log("page loaded");
-    SetupNotifications();
+    setupNotifications();
+    initBurgerMenu();
 });
 // document.documentElement.addEventListener('turbo:visit', () => {
 //     console.log("page changed")
