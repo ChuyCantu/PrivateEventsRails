@@ -1,0 +1,83 @@
+.h2 {
+    color: #4a4a4a;
+    font-size: 3rem;
+    margin: 20px 30px;
+}
+
+/*
+  ==============
+    EVENT CARD
+  ==============
+*/ 
+.events-container {
+    display: inline-flex; /* inline so it shrinks properly */
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-height: 700px;
+    width: 100%;
+    gap: 30px;
+    
+    padding: 0 30px 30px 30px;
+    overflow: auto;
+}
+
+.event-card-clickable {
+    text-decoration: none;
+    
+    height: 100%;
+    width: 100%;
+}
+
+.event-card {
+    background: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 12px;
+    padding: 15px;
+
+    height: 300px;
+    width: 260px;
+    
+    transition: box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px; */
+    /* box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; */
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.event-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.event-card .title {
+    color: #39364f;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.event-card .date {
+    color: #d1410c;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+.event-card .location {
+    font-size: 1.6rem;
+    color: #1b1b1b;
+    font-weight: 500;
+}
+
+.event-card .author {
+    color: #5a5a5a;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.event-card .author strong {
+    font-weight: 600;
+    color: #363636;
+}

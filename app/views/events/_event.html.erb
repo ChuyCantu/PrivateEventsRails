@@ -1,7 +1,19 @@
-<article class="box">
-    <h2><%= event.title %></h2>
+<article class="event-card">
+<a href="<%= event_path(event) %>" 
+   class="event-card-clickable event-card-container">
+    <h3 class="title"><%= event.title %></h3>
 
     <%# https://apidock.com/ruby/DateTime/strftime %>
-    <span><%= event.date.strftime("%a, %b %d, %Y %I:%M %p") %> UTC<%= event.date.strftime("%:z") %></span>
-    <strong><%= event.creator.username %></strong><br/>
+    <div>
+        <small class="date"><%= event.date.strftime("%a, %b %d, %Y %I:%M %p") %> UTC<%= event.date.strftime("%:z") %></small>
+    </div>
+    
+    <div>
+        <small class="location"><%= event.location %></small>
+    </div>
+
+    <div>
+        <small class="author">Created by <strong><%= event.creator.username %></strong></small>
+    </div>
+</a>
 </article>

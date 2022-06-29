@@ -1,7 +1,13 @@
 <main>
-    <h1>Upcoming Events</h1>
+    <h2 class="h2">Upcoming Events</h2>
     
     <section class="events-container">
-        <%= render @events %>
+        <%= render @upcoming_events %>
+    </section>
+
+    <h2 class="h2">Past Events</h2>
+
+        <section class="events-container">
+        <%= render @past_events %>
     </section>
 </main>
