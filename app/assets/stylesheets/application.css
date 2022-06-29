@@ -15,4 +15,6 @@
  *= require_self
  *= require 'main'
  *= require 'auth'
+ *
+ *= require 'events/index'
  */

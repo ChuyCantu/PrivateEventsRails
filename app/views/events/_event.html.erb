@@ -1,0 +1,7 @@
+<article class="box">
+    <h2><%= event.title %></h2>
+
+    <%# https://apidock.com/ruby/DateTime/strftime %>
+    <span><%= event.date.strftime("%a, %b %d, %Y %I:%M %p") %> UTC<%= event.date.strftime("%:z") %></span>
+    <strong><%= event.creator.username %></strong><br/>
+</article>

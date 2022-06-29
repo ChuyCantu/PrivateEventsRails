@@ -23,6 +23,8 @@ body {
     /* In case we want some side content */
     grid-template-columns: minmax(auto, 1fr) minmax(45ch, 75ch) minmax(auto, 1fr); /* minmax(45ch, 75ch) */
     justify-content: space-around;
+
+    padding-top: 10px;
 }
 
 .link {
