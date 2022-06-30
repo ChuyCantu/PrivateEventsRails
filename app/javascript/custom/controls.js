@@ -26,6 +26,13 @@ function fadeAndSlideOut(element, duration, func) {
 
         // const burgerItems = burgerMenu.getElementsByClassName("burger-item");
         // Array.from(burgerItems).forEach((item) => item.addEventListener("click", () => burgerMenu.classList.toggle("hidden")));
+
+        // Check click outside the burger menu
+        document.addEventListener("click", (e) => { 
+            if (!burgerMenu.contains(e.target) && !burgerBtn.contains(e.target)
+                && !burgerMenu.classList.contains("hidden"))
+                burgerMenu.classList.toggle("hidden");
+        });
     }
 // ==============================================
 
@@ -80,33 +87,4 @@ document.documentElement.addEventListener('turbo:load', () => {
 });
 // document.documentElement.addEventListener('turbo:visit', () => {
 //     console.log("page changed")
-// });
-
-
-//! Test notification creation:
-// document.documentElement.addEventListener('mousedown', (e) => {
-//     if (e.button != 2)
-//         return;
-
-//     let notification = document.createElement("div");
-//     let msg = document.createElement("p");
-//     let btn = document.createElement("span");
-//     let icon = document.createElement("i");
-    
-//     const isNotice = Math.floor(Math.random() * 2) == 0;
-
-//     notification.classList.add("notification");
-//     notification.classList.add(isNotice ? "notice" : "alert");
-//     msg.classList.add("msg");
-//     msg.innerText = isNotice ? "Notice message" : "Alert message";
-//     btn.classList.add("close-btn");
-//     icon.classList.add("fa-solid");
-//     icon.classList.add("fa-xmark");
-
-//     btn.appendChild(icon);
-//     notification.appendChild(msg);
-//     notification.appendChild(btn);
-
-//     const notificationsContainers = document.getElementsByClassName("notifications");
-//     notificationsContainers[0].appendChild(notification);
 // });
