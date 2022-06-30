@@ -5,6 +5,7 @@ class Event < ApplicationRecord
                           foreign_key: "attended_event_id",
                           association_foreign_key: "attendee_id",
                           class_name: "User")
+  before_destroy { attendees.clear }
 
   validates(:title, presence: true)
   validates(:description, presence: true)
