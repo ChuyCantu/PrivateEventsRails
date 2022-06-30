@@ -67,27 +67,17 @@
       </nav>
 
       <section class="burger-menu hidden">
-        <ul class="burger-items">
-          <li class="burger-item">
-              <%= link_to("Create Event", new_event_path, class: "link") %>
-          </li>
+        <div class="burger-items">
+              <%= link_to("Create Event", new_event_path, class: "link burger-item") %>
           <% if user_signed_in? %>
-            <li class="burger-item">
-              <%= link_to(current_user.username, user_path(current_user), class: "link") %>
-            </li>
-            <li class="burger-item">
-              <%= link_to("Log Out", destroy_user_session_path, class: "link",
+              <%= link_to(current_user.username, user_path(current_user), class: "link burger-item") %>
+              <%= link_to("Log Out", destroy_user_session_path, class: "link burger-item",
                           data: { turbo_method: :delete }) %>
-            </li>
           <% else %>
-              <li class="burger-item">
-                <%= link_to("Sign In", new_user_session_path, class: "link") %>
-              </li>
-              <li class="burger-item">
-                <%= link_to("Sign Up", new_user_registration_path, class: "link") %>
-              </li>
+                <%= link_to("Sign In", new_user_session_path, class: "link burger-item") %>
+                <%= link_to("Sign Up", new_user_registration_path, class: "link burger-item") %>
           <% end %>
-        </ul>
+        </div>
       </section>
     </header>
 
