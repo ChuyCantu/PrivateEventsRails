@@ -32,8 +32,25 @@
             </div>
 
             <% if @event.creator != current_user %>
-                <%= button_to("Enroll Now", "#", class: "link btn-outline-primary size-fill") %>
+                <% if !current_user.nil? && current_user.enrolled_to?(@event) %>
+                    <%= button_to("Unenroll", attendance_event_path(@event), class: "btn-outline-alert size-fill", method: :delete) %>
+                <% else %>
+                    <%= button_to("Enroll Now", attendance_event_path(@event), class: "link btn-outline-primary size-fill") %>
+                <% end %>
+            <% else %>
+                    <%= button_to("Delete Event", event_path(@event), class: "btn-outline-alert size-fill", method: :delete,
+                                  form: { data: { turbo_confirm: "Are you sure you want to delete this event? This cannot be undone" } }) %>
             <% end %>
+        </div>
+
+        <div class="attendees">
+            <h2 class="medium-title">Who is attending?</h2>
+
+            <div class="list">           
+                <% @attendees.each do |attendee| %>
+                    <small><%= attendee.username %></small>
+                <% end %>
+            </div>
         </div>
     </article>
 

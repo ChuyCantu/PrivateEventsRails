@@ -14,4 +14,8 @@ class User < ApplicationRecord
   validates(:username, presence: true)
   validates(:email, presence: true)
   validates(:password, presence: true, length: { minimum: 6 })
+
+  def enrolled_to?(event)
+    event.attendees.where(id: self).exists?
+  end
 end
