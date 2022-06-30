@@ -3,8 +3,8 @@ class EventsController < ApplicationController
 
   def index
     today = today_zeroed
-    @upcoming_events = Event.all.where("date >= ?", today)
-    @past_events = Event.all.where("date < ?", today)
+    @upcoming_events = Event.where("date >= ?", today)
+    @past_events = Event.where("date < ?", today)
   end
 
   def show
@@ -14,21 +14,47 @@ class EventsController < ApplicationController
 
   def new
     @event = current_user.events.build
+    # @event.date = Time.now
+    # TODO: Handle time zones
   end
 
   def create
     @event = current_user.events.build(event_params)
 
     if @event.save
+      flash[:notice] = "Event successfully created"
       redirect_to(root_path)
     else
+      flash[:alert] = "Failed to create event"
+      render(:new, status: :unprocessable_entity)
+    end
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+
+    if @event.update(event_params)
+      flash[:notice] = "Event successfully updated"
+      redirect_to(root_path)
+    else
+      flash[:alert] = "Failed to update event"
       render(:new, status: :unprocessable_entity)
     end
   end
 
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy
+
+    if @event.creator == current_user
+      @event.destroy
+      flash[:notice] = "Event successfully deleted"
+    else
+      flash[:alert] = "Cannot delete other's user events"
+    end
 
     redirect_to(root_path)
   end

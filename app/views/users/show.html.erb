@@ -1,5 +1,24 @@
-<h1><%= current_user.username %> Profile</h1>
+<main>
+    <div class="flex-row flex-align-baseline">
+        <h1 class="h2">Hi, <%= current_user.username %></h1>
+        <%= link_to("Edit User", edit_user_registration_path, class: "link") %>
+    </div>
 
+    <h2 class="h2">My events</h2>
+    
+    <section class="events-container">
+        <%= render @my_events %>
+    </section>
 
+    <h2 class="h2">Events I'm attending</h2>
 
-<%= link_to("Edit User", edit_user_registration_path, class: "link") %>
+    <section class="events-container">
+        <%= render @attending_events %>
+    </section>
+
+    <h2 class="h2">Events I attended in the past</h2>
+
+    <section class="events-container">
+        <%= render @past_attended_events %>
+    </section>
+</main>

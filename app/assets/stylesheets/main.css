@@ -85,6 +85,16 @@ body {
     white-space: pre-line;
 }
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.flex-align-baseline {
+    align-items: baseline;
+}
+
 /*
   ==========
     NAVBAR
@@ -281,12 +291,18 @@ input[type="text"],
 input[type="tel"],
 input[type="email"],
 input[type="password"],
-textarea  {
+textarea,
+select {
     border: 1px solid #bdbdbd;
     border-radius: 8px;
     font-size: 1.6rem;
     padding: 4px 8px;
     width: 100%;
+}
+
+select {
+    background: #fff;
+    width: auto;
 }
 
 .post-form form {
@@ -304,7 +320,8 @@ input[type="text"]:hover:not(:focus),
 input[type="tel"]:hover:not(:focus),
 input[type="email"]:hover:not(:focus),
 input[type="password"]:hover:not(:focus),
-textarea:hover:not(:focus) {
+textarea:hover:not(:focus),
+select:hover:not(:focus) {
     border-color: #858585;
 }
 
@@ -312,7 +329,8 @@ input[type="text"]:focus,
 input[type="tel"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
     outline: 1px solid #308aff;
     border-color: #308aff;
 }
