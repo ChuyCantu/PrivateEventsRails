@@ -11,4 +11,16 @@ class Event < ApplicationRecord
   validates(:description, presence: true)
   validates(:date, presence: true)
   validates(:location, presence: true)
+
+  scope(:upcoming, ->() {
+    today = DateTime.now
+    today_zero = DateTime.new(today.year, today.month, today.day, 0, 0, 0)
+    where("date >= ?", today_zero)
+  })
+
+  scope(:past, ->() {
+    today = DateTime.now
+    today_zero = DateTime.new(today.year, today.month, today.day, 0, 0, 0)
+    where("date < ?", today_zero)
+  })
 end
