@@ -5,14 +5,17 @@
 
     <%# https://apidock.com/ruby/DateTime/strftime %>
     <div>
+        <i class="fa-solid fa-calendar-days"></i>
         <small class="date"><%= event.date.strftime("%a, %b %d, %Y %I:%M %p") %> UTC<%= event.date.strftime("%:z") %></small>
     </div>
     
     <div>
+        <i class="fa-solid fa-location-dot"></i>
         <small class="location"><%= event.location %></small>
     </div>
 
     <div>
+        <i class="fa-regular fa-user"></i>
         <small class="author">By <strong><%= event.creator.username %></strong></small>
     </div>
 </a>

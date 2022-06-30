@@ -10,7 +10,8 @@
         </div>
 
         <div class="side">
-            <div>
+            <div class="tag">
+                <i class="fa-regular fa-user"></i>
                 <small class="author">Created by <strong><%= @event.creator.username %></strong></small>
             </div>
             <%# https://apidock.com/ruby/DateTime/strftime %>
@@ -35,7 +36,10 @@
                 <% if !current_user.nil? && current_user.enrolled_to?(@event) %>
                     <%= button_to("Unenroll", attendance_event_path(@event), class: "btn-outline-alert size-fill", method: :delete) %>
                 <% else %>
-                    <%= button_to("Enroll Now", attendance_event_path(@event), class: "link btn-outline-primary size-fill") %>
+                    <%# turbo: false in order to fix 
+                        Processing by Devise::SessionsController#new as TURBO_STREAM
+                        Completed 406 Not Acceptable error %>
+                    <%= button_to("Enroll Now", attendance_event_path(@event), class: "link btn-outline-primary size-fill", form: { data: { turbo: false } }) %>
                 <% end %>
             <% else %>
                     <%= button_to("Edit", edit_event_path(@event), class: "link btn-outline-primary size-fill", method: :get) %>
